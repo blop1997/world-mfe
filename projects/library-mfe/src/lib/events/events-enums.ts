@@ -24,6 +24,12 @@ export enum MFEvents {
 
   VIEW_ALL_FAVORITES = 'viewAllFavorites',
   PLAN_TRIP = 'planTrip',
-  FAVORITES_UPDATED = 'favoritesUpdated'
+  FAVORITES_UPDATED = 'favoritesUpdated',
+
+
+  TIP_VIEWED = 'tipViewed',
+  TIP_LIKED = 'tipLiked',
+  TIP_SAVED = 'tipSaved',
+  TIPS_UPDATED = 'tipsUpdated'
 
 }

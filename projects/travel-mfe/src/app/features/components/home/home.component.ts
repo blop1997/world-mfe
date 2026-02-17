@@ -21,6 +21,7 @@ export class HomeComponent{
   private injector=inject(Injector);
   countriesTrending = signal<Type<unknown> | null>(null);
   countriesTops = signal<Type<unknown> | null>(null);
+  travelTips = signal<Type<unknown> | null>(null);
 
   constructor() {
     effect(() => {
@@ -38,6 +39,13 @@ export class HomeComponent{
           this.countriesTops.set(m.CountryTopCtnComponent);
         })
         .catch(console.error);
+
+      loadRemoteModule('travelTipsMfe', './TravelTipsCtnComponent')
+        .then((m) => {
+          console.log('TravelTipsMfe cargado:', m);
+          this.travelTips.set(m.TravelTipsCtnComponent);
+        })
+        .catch(err => console.error('Error cargando TravelTipsMfe:', err));
     });
   }
 

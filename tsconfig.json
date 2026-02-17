@@ -51,6 +51,12 @@
     },
     {
       "path": "./projects/library-mfe/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/travel-tips-mfe/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/travel-tips-mfe/tsconfig.spec.json"
     }
   ]
 }
