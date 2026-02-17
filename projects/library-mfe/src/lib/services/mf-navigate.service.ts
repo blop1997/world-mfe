@@ -22,7 +22,7 @@ export class MFNavigateService {
 
       let sw = (window as any).isHost;
 
-      console.log('sw...' + sw);
+      //console.log('sw...' + sw);
 
       if (sw) {
 

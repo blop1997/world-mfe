@@ -22,7 +22,7 @@ export class HeaderComponent /* implements OnInit*/{
   public headerSerive=inject(HeaderService)
 
   openMiniCar() {
-    console.log('openMiniCar')
+    //console.log('openMiniCar')
     this.headerSerive.toggleCart();
     window.dispatchEvent(
         new CustomEvent(MFEvents.REFRESH_CART_ITEMS, {})
@@ -85,11 +85,11 @@ export class HeaderComponent /* implements OnInit*/{
   }
 
   openSearch() {
-    console.log('Abrir búsqueda de países');
+    //console.log('Abrir búsqueda de países');
   }
 
   openFavorites() {
-    console.log('Abrir favoritos');
+    //console.log('Abrir favoritos');
   }
 
 }

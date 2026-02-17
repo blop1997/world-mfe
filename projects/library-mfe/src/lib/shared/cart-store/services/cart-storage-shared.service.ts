@@ -1,19 +1,27 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { CartItem } from '../models/cart-Item';
+import { CryptoService } from '../../../crypto/crypto.service';
 
 
 @Injectable({ providedIn: 'root' })
 export class CartStorageSharedService {
-
   private readonly KEY = 'cartItems';
+  private crypto= inject(CryptoService)
 
-  load(): CartItem[] {
+  async load(): Promise<CartItem[]> {
     const raw = sessionStorage.getItem(this.KEY);
-    return raw ? JSON.parse(raw) : [];
+    if (!raw) return [];
+
+    try {
+      return await this.crypto.decrypt(raw);
+    } catch {
+      return [];
+    }
   }
 
-  save(items: CartItem[]): void {
-    sessionStorage.setItem(this.KEY, JSON.stringify(items));
+  async save(items: CartItem[]): Promise<void> {
+    const encrypted = await this.crypto.encrypt(items);
+    sessionStorage.setItem(this.KEY, encrypted);
   }
 
   clear(): void {

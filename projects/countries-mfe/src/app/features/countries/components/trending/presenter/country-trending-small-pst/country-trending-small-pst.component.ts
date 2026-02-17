@@ -1,7 +1,7 @@
 import { CONSTANTS_MFES } from '../../../../../../../../../library-mfe/src/lib/constants/constants-mfe';
 import { MFRouterLinkDirective } from './../../../../../../../../../library-mfe/src/lib/directives/MFRouterLinkDirective';
 import { Component, computed, inject, input } from '@angular/core';
-import { MFEvents } from '../../../../../../../../../library-mfe/src/lib/events/events-enums';
+import { MFEvents } from 'library-mfe';
 import { Country } from '../../../../models/country';
 import { JsonPipe } from '@angular/common';
 
@@ -52,7 +52,7 @@ export class CountryTrendingSmallPstComponent {
   mfeAppCountries=CONSTANTS_MFES.MFE_COUNTRIES
 
   addToCart(country?: Country) {
-    console.log('countries-mfe::CountryTrendingSmallPstComponent::addToCart...');
+    //console.log('countries-mfe::CountryTrendingSmallPstComponent::addToCart...');
     window.dispatchEvent(
         new CustomEvent(MFEvents.ADD_TO_CART, {
         detail: {

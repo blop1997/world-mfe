@@ -15,7 +15,7 @@ export class AddToCartBtnComponent {
   readonly country = input<Country>();
 
   addToCart() {
-    console.log('addToCart...Library');
+    //console.log('addToCart...Library');
     window.dispatchEvent(
         new CustomEvent(MFEvents.ADD_TO_CART, {
         detail: {

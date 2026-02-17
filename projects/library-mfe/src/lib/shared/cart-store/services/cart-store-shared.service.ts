@@ -1,10 +1,12 @@
-import { Injectable, signal, computed, effect } from '@angular/core';
+import { Injectable, signal, computed, effect, inject } from '@angular/core';
 import { CartStorageSharedService } from './cart-storage-shared.service';
 import { CartItem } from '../models/cart-Item';
 
 
 @Injectable({ providedIn: 'root' })
 export class CartStoreSharedService {
+
+  private storage = inject(CartStorageSharedService);
 
   private readonly _items = signal<CartItem[]>([]);
 
@@ -14,21 +16,24 @@ export class CartStoreSharedService {
     this._items().reduce((acc, item) => acc + (item.quantity ?? 0), 0)
   );
 
-  constructor(private storage: CartStorageSharedService) {
-    this.hydrate();
+  constructor() {
     effect(() => {
-      this.storage.save(this._items());
+      this.persist();
     });
+
+    this.hydrate();
   }
 
-  private hydrate(): void {
-    const stored = this.storage.load();
+  private async hydrate(): Promise<void> {
+    const stored = await this.storage.load();
     this._items.set(stored);
   }
 
+  private async persist(): Promise<void>{
+    await this.storage.save(this._items());
+  }
+
   addItem(cartItem: CartItem): void {
-     console.log('CartStoreSharedService::addItem')
-    console.log(cartItem)
     this._items.update(items => [...items, cartItem]);
   }
 
@@ -47,10 +52,10 @@ export class CartStoreSharedService {
   }
 
   readonly subTotal = computed(() =>
-  this._items().reduce(
-    (sum, item) =>
-      sum + ((item.country?.population ?? 0) * (item.quantity ?? 0)),
-    0
-  )
-);
+    this._items().reduce(
+      (sum, item) =>
+        sum + ((item.country?.population ?? 0) * (item.quantity ?? 0)),
+      0
+    )
+  );
 }

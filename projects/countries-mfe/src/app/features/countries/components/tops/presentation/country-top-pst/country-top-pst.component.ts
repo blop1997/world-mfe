@@ -22,7 +22,7 @@ export class CountryTopPstComponent {
 
   addToCart(country?: Country) {
 
-    console.log('addToCart...');
+    //console.log('addToCart...');
 
     window.dispatchEvent(
         new CustomEvent(MFEvents.ADD_TO_CART, {

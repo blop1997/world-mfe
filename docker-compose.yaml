@@ -1,0 +1,30 @@
+name: travel-mfe-angular-nginx-stack
+
+services:
+  travel-mfe:
+    image: travel-mfe:1.0.0
+    container_name: travel-mfe
+    ports:
+      - "4200:80"
+    restart: always
+    networks:
+      - app-travel-network
+  countries-mfe:
+    image: countries-mfe:1.0.0
+    container_name: countries-mfe
+    ports:
+      - "4201:80"
+    restart: always
+    networks:
+      - app-travel-network
+  cart-mfe:
+    image: cart-mfe:1.0.0
+    container_name: cart-mfe
+    ports:
+      - "4202:80"
+    restart: always
+    networks:
+      - app-travel-network
+networks:
+  app-travel-network:
+    driver: bridge

@@ -40,7 +40,7 @@ export class SlideOverComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('CartQuickPstComponent :: ngOnInit');
+    //console.log('CartQuickPstComponent :: ngOnInit');
     this.headerService.toggleState$.subscribe((state) => {
       this.toggleState = state;
     });

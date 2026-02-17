@@ -12,6 +12,11 @@ module.exports = withNativeFederation({
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    'library-mfe': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto'
+    }
   },
 
   skip: [
