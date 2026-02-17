@@ -25,6 +25,14 @@ services:
     restart: always
     networks:
       - app-travel-network
+  travel-tips-mfe:
+    image: travel-tips-mfe:1.0.0
+    container_name: ctravel-tipse
+    ports:
+      - "4203:80"
+    restart: always
+    networks:
+      - app-travel-network
 networks:
   app-travel-network:
     driver: bridge

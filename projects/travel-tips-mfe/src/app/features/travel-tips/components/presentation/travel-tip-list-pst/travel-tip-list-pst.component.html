@@ -1,5 +1,4 @@
 <div class="space-y-6">
-  <!-- Filtros -->
   <div class="flex flex-wrap gap-2">
     <button *ngFor="let filter of filters"
       (click)="onFilterChange(filter.value)"
@@ -13,7 +12,6 @@
     </button>
   </div>
 
-  <!-- Grid de tips -->
   @if (tips().length > 0) {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (tip of tips(); track tip.id) {
@@ -26,7 +24,6 @@
       }
     </div>
   } @else {
-    <!-- Estado vacío -->
     <div class="text-center py-12 bg-gray-50 rounded-lg">
       <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
