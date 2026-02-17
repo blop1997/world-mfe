@@ -1,0 +1,4 @@
+{
+	"countriesMfe": "http://localhost:4201/remoteEntry.json",
+	"cartsMfe": "http://localhost:4202/remoteEntry.json"
+}

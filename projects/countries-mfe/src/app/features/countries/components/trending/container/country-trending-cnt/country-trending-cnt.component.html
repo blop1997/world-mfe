@@ -1,0 +1,19 @@
+<div class="bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:mt-16">
+    <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-10 border-b border-gray-200 pb-2">
+      Países con mayor población</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-8 sm:gap-8">
+      <div class="col-span-1 big">
+        <country-trending-big-ctn [country]="country()" />
+      </div>
+      <div class="col-span-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          @for (country of countries() ; track $index) {
+            <country-trending-small-ctn  [country]="country"/>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="bg-white product_des">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-10 border-b border-gray-200 pb-2">
+      Países destacados</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 sm:gap-8">
+      <!--Country Top-->
+      @for (country of countries() ; track $index) {
+        <country-top-pst [country]="country"/>
+      }
+    </div>
+  </div>
+</div>

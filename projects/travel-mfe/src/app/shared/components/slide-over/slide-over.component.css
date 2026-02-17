@@ -1,0 +1,16 @@
+.showCard{
+  transform: translateX(500px);
+  transition: .3s ease;
+}
+
+.entering{
+  transition: cubic-bezier(.4,0,.2,1) .5s;
+  opacity: 1;
+  visibility: visible;
+}
+.leaving{
+  transition: cubic-bezier(.4,0,.2,1) .5s;
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+}

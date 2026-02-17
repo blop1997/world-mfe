@@ -1,0 +1,50 @@
+@if(countryWithRating()){
+  <div class="mb-8 flex relative">
+    <div class="w-32 h-40 me-5 relative overflow-hidden shrink-0">
+      <div class="hover_img">
+        <a href="">
+          <img
+          src={{image()}}
+            class="absolute object-cover h-full w-full block" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="m-0 flex gap-2 flex-col">
+      <h3 class="font-medium text-ellipsis title_prodx">
+        <a href="./e-commerce/product-detail" class="hover:text-indigo-600 hover:underline">{{countryWithRating()?.name?.common}}</a>
+
+      </h3>
+      <div class="flex gap-2 items-center">
+        <div class="stars"></div>
+        <div class="flex items-center gap-1">
+          @for (filled of stars(); track $index) {
+            <svg
+              class="w-4 h-4"
+              [class.text-yellow-400]="filled"
+              [class.text-neutral-300]="!filled"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.175c.969 0 1.371 1.24.588 1.81l-3.38 2.455a1 1 0 00-.364 1.118l1.287 3.967c.3.921-.755 1.688-1.54 1.118l-3.38-2.455a1 1 0 00-1.175 0l-3.38 2.455c-.784.57-1.838-.197-1.539-1.118l1.287-3.967a1 1 0 00-.364-1.118L2.05 9.394c-.783-.57-.38-1.81.588-1.81h4.175a1 1 0 00.95-.69l1.286-3.967z"
+              />
+            </svg>
+          }
+        <span class="ml-1 text-xs text-neutral-400">
+          ({{ reviewsCount().toLocaleString() }})
+        </span>
+      </div>
+      </div>
+      <div class="flex gap-2 items-end">
+        <span class="text-sm text-neutral-500">Population: </span>
+        <span class="font-medium text-2xl text-red-400 me-2">{{countryWithRating()?.population}}</span>
+      </div>
+      <div class="flex gap-1 items-center">
+        <button type="button" (click)="addToCart(country())"
+        style="width: 140px;"
+          class="flex w-full cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Add to favorites</button>
+      </div>
+    </div>
+
+  </div>
+}

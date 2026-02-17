@@ -1,0 +1,20 @@
+<div
+  class="fixed inset-0 bg-gray-500/75 transition-opacity ease-in-out duration-500"
+  aria-hidden="true"
+  [ngClass]="{ 'opacity-100 visible': toggleState, 'opacity-0 invisible': !toggleState }"
+></div>
+
+<div class="fixed inset-0 overflow-hidden" [ngClass]="{ invisible: !toggleState }">
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+      <div
+        class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 sm:duration-700"
+        [ngClass]="{ 'translate-x-0': toggleState, 'translate-x-full': !toggleState }"
+      >
+        @if (cart()) {
+          <ng-container *ngComponentOutlet="cart()"></ng-container>
+        }
+      </div>
+    </div>
+  </div>
+</div>

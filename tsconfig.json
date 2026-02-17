@@ -6,6 +6,11 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "paths": {
+      "library-mfe": [
+        "./dist/library-mfe"
+      ]
+    },
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -21,5 +26,31 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/travel-mfe/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/travel-mfe/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/countries-mfe/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/countries-mfe/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/cart-mfe/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/cart-mfe/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/library-mfe/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/library-mfe/tsconfig.spec.json"
+    }
+  ]
 }

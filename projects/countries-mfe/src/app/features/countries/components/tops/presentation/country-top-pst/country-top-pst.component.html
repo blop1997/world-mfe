@@ -1,0 +1,31 @@
+@if(country()){
+<div class="col-span-1 big">
+  <div class="rounded-md border-gray-700 item m-auto">
+    <div class="media relative overflow-hidden shrink-0">
+      <div class="relative">
+        <button type="button" class="cursor-pointer rounded-md">
+          <img class="img-top"
+            src={{image()}}
+            alt="Front of men&#039;s Basic Tee in black.">
+        </button>
+      </div>
+    </div>
+    <div class="gap-4 flex mt-5 flex-col">
+      <h3 class="font-medium text-ellipsis title_prod">
+        <a href="" class="hover:text-indigo-600 hover:underline">{{country()?.name?.common}}</a>
+      </h3>
+      <div class="flex gap-2 items-end">
+        <span class="font-medium text-2xl text-red-400 me-2">{{country()?.population}}</span>
+        <span class="line-through text-sm text-neutral-400">{{country()?.population}}</span>
+      </div>
+      <div class="flex gap-2 items-end"></div>
+      <button type="button" (click)="addToCart(country())"
+      style="width: 140px;"
+       class="flex w-full cursor-pointer items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Add
+       to favorites</button>
+       <add-to-cart-btn [country]="country()"/>
+      </div>
+    </div>
+  </div>
+}
+
